@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
+//@CrossOrigin("*")
+@RequestMapping("/activite")
 public class ActiviteController {
    @Autowired
    ActiviteService activiteService;
@@ -21,8 +22,9 @@ public class ActiviteController {
     return activiteService.getAllActivite();
     }
     @PostMapping("/AjouActivite")
-    public Activite save(Activite activite){
-        return activiteService.ajouterActivite(activite);
+    public String ajouterActivite(@RequestBody Activite activite){
+        this.activiteService.ajouterActivite(activite);
+        return "ok";
         }
      @PostMapping("ModifietActivite")
     public Activite modifier(Activite activite){
@@ -33,8 +35,7 @@ public class ActiviteController {
     return activiteService.getActivite(Id_activite);
      }
      @DeleteMapping("/ToutSupprimerActivites")
-    public Activite toutSupprimer(Activite activite){
-     activiteService.supprimerActivite();
+    public void deleteAll(){
      }
 
 }

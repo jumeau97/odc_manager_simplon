@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 public interface ActiviteService {
-    Activite ajouterActivite (Activite activite);
+    public String ajouterActivite (Activite activite);
     Activite modifierActivite (Activite activite);
     void supprimerActivite (Activite activite);
     void supprimerActiviteById (Long Id_activite);

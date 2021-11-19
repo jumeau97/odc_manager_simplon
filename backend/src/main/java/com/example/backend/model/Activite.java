@@ -22,7 +22,7 @@ public class Activite {
     private Long Id_activite;
     private  String libelle;
     private  String type;
-    Date DateDebut = new Date();
-    Date DateFin = new Date();
+    private Date date_debut;
+    private Date date_fin;
     private String etat;
 }

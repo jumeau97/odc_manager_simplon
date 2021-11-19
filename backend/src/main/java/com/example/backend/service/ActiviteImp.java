@@ -14,8 +14,9 @@ public class ActiviteImp implements ActiviteService{
     ActiviteRepository activiteRepository;
 
     @Override
-    public Activite ajouterActivite(Activite activite) {
-        return activiteRepository.save(activite);
+    public String ajouterActivite(Activite activite) {
+        this.activiteRepository.save(activite);
+        return  "Ajout Ok"+activite.getType();
     }
 
     @Override
