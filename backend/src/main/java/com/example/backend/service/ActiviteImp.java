@@ -25,7 +25,7 @@ public class ActiviteImp implements ActiviteService{
 
     @Override
     public void supprimerActivite(Activite activite) {
-        activiteRepository.delete(activite);
+        activiteRepository.deleteAll();
 
     }
 
