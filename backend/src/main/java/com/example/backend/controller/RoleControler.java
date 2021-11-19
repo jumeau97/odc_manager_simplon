@@ -6,11 +6,15 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.Role;
+import com.example.backend.service.RoleService;
 import com.example.backend.service.RoleServiceImp;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,18 +25,32 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api")
-public class RoleControleler {
+public class RoleControler {
+
    @Autowired
-   RoleServiceImp roleserviceimp;
+  RoleServiceImp roleimp;
    
    @PostMapping("/role/add")
     public Role save (@RequestBody Role role){
-        return roleserviceimp.ajouter_role(role);
+        return roleimp.ajouter_role(role);
     }
     
-//@DeleteMapping
-//public void supprimerRole(@PathVariable Long id){
-//    RoleService.deleteRoleBye(Id)
-//}
+    @GetMapping("/role/all")
+   public List <Role> listeRole(){
+       return roleimp.listeRole();
+   }
+    
+    
+    @DeleteMapping ("/role/delete/{id}")
+    public void suprimer(@PathVariable Long id){
+        roleimp.suprimer_role(id);
+        
+    }
+    
+    @PutMapping ("/role/update/{id}")
+    public Role update(@RequestBody Role role, @PathVariable Long id){
+        return roleimp.modifier_role(id, role);
+    }
+    
     
 }

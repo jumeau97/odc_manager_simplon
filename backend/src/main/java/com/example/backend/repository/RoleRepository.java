@@ -8,6 +8,7 @@ package com.example.backend.repository;
 
 import com.example.backend.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 
 
@@ -15,6 +16,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author hady.fofana
  */
+@RepositoryRestResource
 public interface RoleRepository extends JpaRepository<Role,Long>{
     
 }
