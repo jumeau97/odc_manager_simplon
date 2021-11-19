@@ -9,7 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -25,5 +25,50 @@ public class Responsable {
     private String domaine;
     private String type;
     private String etat;
+    
+	public Long getId_responsable() {
+		return id_responsable;
+	}
+	public void setId_responsable(Long id_responsable) {
+		this.id_responsable = id_responsable;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public Long getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(Long telephone) {
+		this.telephone = telephone;
+	}
+	public String getDomaine() {
+		return domaine;
+	}
+	public void setDomaine(String domaine) {
+		this.domaine = domaine;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getEtat() {
+		return etat;
+	}
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
+    
+    
     
 }
