@@ -17,12 +17,13 @@ public class Administrateur implements Serializable {
     String login;
     String password;
     String email;
-    boolean etat;
+    //boolean etat;
+    private Etat etat;
 
     public Administrateur() {
     }
 
-    public Administrateur(String nom, String prenom, String login, String password, String email, boolean etat) {
+    public Administrateur(String nom, String prenom, String login, String password, String email, Etat etat) {
         this.nom = nom;
         this.prenom = prenom;
         this.login = login;
@@ -79,11 +80,11 @@ public class Administrateur implements Serializable {
         this.email = email;
     }
 
-    public boolean isEtat() {
+    public Etat getEtat() {
         return etat;
     }
 
-    public void setEtat(boolean etat) {
+    public void setEtat(Etat etat) {
         this.etat = etat;
     }
 }
