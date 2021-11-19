@@ -6,10 +6,10 @@
 package com.example.backend.model;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.Collection;
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,5 +32,8 @@ public class Role implements Serializable {
     private Long Id;
     private String libele;
     private String description;
+    @OneToMany(mappedBy ="role" )
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Collection<Administrateur> administrateurs;
     
 }

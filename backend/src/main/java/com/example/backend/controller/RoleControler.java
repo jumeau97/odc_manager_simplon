@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api")
-public class RoleControleler {
+public class RoleControler {
    @Autowired
    RoleServiceImp roleserviceimp;
    

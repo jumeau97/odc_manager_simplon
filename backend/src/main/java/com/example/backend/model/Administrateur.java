@@ -1,9 +1,6 @@
 package com.example.backend.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -19,17 +16,19 @@ public class Administrateur implements Serializable {
     String email;
     //boolean etat;
     private Etat etat;
-
+    @ManyToOne
+    private Role role;
     public Administrateur() {
     }
 
-    public Administrateur(String nom, String prenom, String login, String password, String email, Etat etat) {
+    public Administrateur(String nom, String prenom, String login, String password, String email, Etat etat, Role role) {
         this.nom = nom;
         this.prenom = prenom;
         this.login = login;
         this.password = password;
         this.email = email;
         this.etat = etat;
+        this.role = role;
     }
 
     public Long getId() {
@@ -86,5 +85,13 @@ public class Administrateur implements Serializable {
 
     public void setEtat(Etat etat) {
         this.etat = etat;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
