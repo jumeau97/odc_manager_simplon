@@ -1,4 +1,8 @@
 package com.example.backend.model;
 
-public class Participant {
+import javax.persistence.Entity;
+import java.io.Serializable;
+
+@Entity
+public class Participant implements Serializable {
 }
