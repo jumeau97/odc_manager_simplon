@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="55560174-7325-42d6-9d98-6ba1618b126e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/model/Administrateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/model/Administrateur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +20,15 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="false" />
       </map>
     </option>
