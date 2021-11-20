@@ -11,23 +11,27 @@ import java.util.List;
 public class ParticipantController {
     @Autowired
     ParticipantService participantService;
+
     @PostMapping(value="/participant")
-    public Participant save (@RequestBody Participant participant){
-        return participantService.addParticipant(participant);
+    public String save(@RequestBody Participant participant){
+        participantService.addParticipant(participant);
+        return "Participant ajouté avec succèss...";
     }
     @DeleteMapping(value = "/deleteParticipant/{id}")
-    public void delete (@PathVariable("id") Long id){
+    public String delete (@PathVariable("id") Long id){
        participantService.deleteParticipant(id);
+       return "Participant supprimé avec succèss...";
     }
+
     @PutMapping(path = "/participant/{id}")
     public Participant update(@RequestBody Participant participant, @PathVariable Long id){
        return participantService.updateParticipant(id,participant);
     }
+
     //pour afficher la liste
-    @GetMapping("/participant")
+    @GetMapping("/participants")
     @ResponseBody
     public List<Participant> list(){
         return participantService.listParticipant();
-
     }
 }
