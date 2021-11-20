@@ -15,13 +15,13 @@ import org.springframework.stereotype.Service;
  *
  * @author hady.fofana
  */
+
 @Service
 public class RoleServiceImp implements RoleService{
 
     @Autowired
     RoleRepository rolerepository;
-    
-    
+
     @Override
     public Role ajouter_role(Role role) {
         return rolerepository.save(role);
@@ -30,7 +30,6 @@ public class RoleServiceImp implements RoleService{
     @Override
     public Role modifier_role(Long Id, Role role) {
         return rolerepository.save(role);
-    
     }
 
     @Override
