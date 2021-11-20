@@ -20,5 +20,10 @@ public class ActiviteControleur {
     @PutMapping("/modifierActivite/{id_activite}")
     public void modifier_activie(@RequestBody Activite activite, @PathVariable Long id_activite){
         this.activiteService.modifier_Activite(id_activite, activite);
+    };
+    //Suprimer une activite
+    @DeleteMapping("/suprimerActivite/{id_activite}")
+    public String suprimer_activite(@PathVariable("id_activite") long id_activite){
+        return this.activiteService.suprimer_Activite(id_activite);
     }
 }

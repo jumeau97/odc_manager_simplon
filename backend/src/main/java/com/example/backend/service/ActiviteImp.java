@@ -29,10 +29,12 @@ public class ActiviteImp implements ActiviteService{
         activiteAncien.setLibelle(activite.getLibelle());
         activiteAncien.setType(activite.getType());
     }
-
+    //Suprimer une activite
     @Override
-    public Activite suprimer_Activite(Long Id, Activite activite) {
-        return null;
+    public String suprimer_Activite(Long id_activite) {
+        this.activiteRepository.deleteById(id_activite);
+        return "L'utilisateur vient d'être supprimer avec succes";
+
     }
 
     @Override
