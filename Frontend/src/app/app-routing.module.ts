@@ -22,6 +22,10 @@ import { AjoutResponsableComponent } from './Responsables/ajout-responsable/ajou
 import { DetailResponsableComponent } from './Responsables/detail-responsable/detail-responsable.component';
 import { ListeResponsableComponent } from './Responsables/liste-responsable/liste-responsable.component';
 import { ModifierResponsableComponent } from './Responsables/modifier-responsable/modifier-responsable.component';
+import { AjoutRoleComponent } from './Role/ajout-role/ajout-role.component';
+import { DetailRoleComponent } from './Role/detail-role/detail-role.component';
+import { ListeRoleComponent } from './Role/liste-role/liste-role.component';
+import { ModifierRoleComponent } from './Role/modifier-role/modifier-role.component';
 
 const routes: Routes = [
 
@@ -57,6 +61,14 @@ const routes: Routes = [
   { path: 'ajout-responsable', component: AjoutResponsableComponent },
   { path: 'modifier-responsable/:id', component: ModifierResponsableComponent },
   { path: 'detail-responsable/:id', component: DetailResponsableComponent },
+
+   // Gestion Rôle
+   { path: 'liste-role', component: ListeRoleComponent },
+   { path: 'ajout-role', component: AjoutRoleComponent },
+   { path: 'modifier-role/:id', component: ModifierRoleComponent },
+   { path: 'detail-role/:id', component: DetailRoleComponent },
+ 
+  
 ];
 
 @NgModule({

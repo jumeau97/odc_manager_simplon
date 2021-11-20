@@ -27,6 +27,10 @@ import { ModifierActiviteComponent } from './Activites/modifier-activite/modifie
 import { ListeActiviteComponent } from './Activites/liste-activite/liste-activite.component';
 import { DetailActiviteComponent } from './Activites/detail-activite/detail-activite.component';
 import { LoginComponent } from './Login/login/login.component';
+import { AjoutRoleComponent } from './Role/ajout-role/ajout-role.component';
+import { DetailRoleComponent } from './Role/detail-role/detail-role.component';
+import { ModifierRoleComponent } from './Role/modifier-role/modifier-role.component';
+import { ListeRoleComponent } from './Role/liste-role/liste-role.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,12 @@ import { LoginComponent } from './Login/login/login.component';
     ModifierActiviteComponent,
     ListeActiviteComponent,
     DetailActiviteComponent,
-    LoginComponent
+    LoginComponent,
+    AjoutRoleComponent,
+    DetailRoleComponent,
+    ModifierRoleComponent,
+    ListeRoleComponent,
+   
   ],
   imports: [
     BrowserModule,
