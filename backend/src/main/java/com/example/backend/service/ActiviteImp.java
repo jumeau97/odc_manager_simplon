@@ -36,14 +36,14 @@ public class ActiviteImp implements ActiviteService{
         return "L'utilisateur vient d'être supprimer avec succes";
 
     }
-
+    //liste activite
     @Override
     public List<Activite> liste_Activite() {
-        return null;
+        return activiteRepository.findAll();
     }
-
+    //liste activite by id_activite
     @Override
-    public Activite liste_Activite_By_Id(Long Id, Activite activite) {
-        return null;
+    public Activite liste_Activite_By_Id(Long id_activite) {
+        return activiteRepository.findById(id_activite).get();
     }
 }
