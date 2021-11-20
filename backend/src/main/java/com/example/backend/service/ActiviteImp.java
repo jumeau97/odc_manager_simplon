@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class ActiviteImpl implements ActiviteService{
+public class ActiviteImp implements ActiviteService{
     @Autowired
     ActiviteRepository activiteRepository;
     //Enregistrer un nouveau activite
