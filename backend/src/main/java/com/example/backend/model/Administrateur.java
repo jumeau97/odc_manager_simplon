@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
@@ -20,14 +21,26 @@ public class Administrateur implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @NotBlank
+    @NotBlank(message = "Veuillez renseigner le nom...")
     String nom;
-    @NotBlank
+
+    @NotBlank(message = "Veuillez renseigner le prenom...")
     String prenom;
+
+    @NotBlank(message = "Veuillez renseigner le login...")
     String login;
+
+    @NotBlank(message = "Veuillez renseigner le mot de pass...")
     String password;
+
+    @NotBlank(message = "Veuillez renseigner l'email...")
+    @Email
     String email;
+
+    @NotBlank(message = "Veuillez renseigner l'etat...")
     private Etat etat;
+
+    @NotBlank(message = "Veuillez renseigner le role...")
     @ManyToOne
     private Role role;
 }
