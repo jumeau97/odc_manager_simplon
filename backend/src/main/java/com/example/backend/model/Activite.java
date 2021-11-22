@@ -21,10 +21,11 @@ public class Activite {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long Id_activite;
-    @NotBlank
+    @NotBlank(message = "Veuillez renseigner la description de l'activité...")
     private  String libelle;
+    @NotBlank(message = "Veuillez renseigner le type de l'activitée...")
     private  String type;
-    private Date date_debut;
+    private Date date_debut = new Date();
     private Date date_fin;
     private String etat;
 }

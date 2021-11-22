@@ -37,10 +37,9 @@ public class Administrateur implements Serializable {
     @Email
     String email;
 
-    @NotBlank(message = "Veuillez renseigner l'etat...")
     private Etat etat;
 
-    @NotBlank(message = "Veuillez renseigner le role...")
+    //@NotNull(message = "Veuillez renseigner le rôle...")
     @ManyToOne
     private Role role;
 }
