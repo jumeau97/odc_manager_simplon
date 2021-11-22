@@ -9,6 +9,7 @@ import com.example.backend.model.Role;
 import com.example.backend.service.RoleService;
 import com.example.backend.service.RoleServiceImp;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,10 +40,14 @@ public class RoleControler {
    public List <Role> listeRole(){
        return roleimp.listeRole();
    }
-    
-    
+   
+   @GetMapping("/role/detail/{id}")
+   public Optional<Role> getRoleById(@PathVariable Long id){
+       return roleimp.getRoleById(id);
+   }
+   
     @DeleteMapping ("/role/delete/{id}")
-    public void suprimer(@PathVariable Long id){
+    public void supprimer(@PathVariable Long id){
         roleimp.suprimer_role(id);
         
     }
