@@ -36,6 +36,10 @@ public class ActiviteControleur {
     //liste activite by id_activite
     @GetMapping("/activite/{id_activite}")
     public Activite activite(@PathVariable("id_activite") Long id_activite){
+<<<<<<< HEAD
         return activiteService.liste_Activite_By_Id(id_activite);
+=======
+        return activiteService.liste_Activite_By_Id (id_activite);
+>>>>>>> 3042ce061525828dad6de4debe5edb7d9417a34d
     }
 }

@@ -24,9 +24,22 @@ public class AdminController {
     //l'insertion
     @PostMapping("/save")
     public @ResponseBody ResponseEntity<?> save(@RequestBody Administrateur admin){
-    return new ResponseEntity<>(adminService.saveAdmin(admin),HttpStatus.OK);
+    return new ResponseEntity<>(adminService.saveAdmin(admin), HttpStatus.OK);
+    }
 
     //la modification
-}
+    @PutMapping("/update/{id}")
+    public @ResponseBody ResponseEntity<?> update(@RequestBody Administrateur admin,@PathVariable(name = "id") Long id){
+        return new ResponseEntity<>(adminService.updateAdmin(id, admin), HttpStatus.OK);
+    }
+
+    //Suppression
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable(name = "id") Long id){
+        adminService.deleteAdmin(id);
+    }
+
+    //public @ResponseBody ResponseEntity<?> deleteAdmin(@PathVariable(value = "id") Long id){
+        //return new ResponseEntity<>(adminService.deleteAdmin(id), HttpStatus.OK);
 
 }

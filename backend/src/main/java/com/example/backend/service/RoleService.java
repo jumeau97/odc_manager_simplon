@@ -7,6 +7,7 @@ package com.example.backend.service;
 
 
 import com.example.backend.model.Role;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,7 +19,8 @@ public interface RoleService {
     
    public Role ajouter_role (Role role);
    public Role modifier_role (Long Id, Role role);
-   void suprimer_role (Long Id, Role role);
+   void suprimer_role (Long Id);
+   public List <Role> listeRole();
     
    
     

@@ -35,5 +35,4 @@ public class Role implements Serializable {
     @OneToMany(mappedBy ="role" )
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Administrateur> administrateurs;
-    
 }
