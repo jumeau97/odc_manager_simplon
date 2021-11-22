@@ -50,7 +50,7 @@ public class ParticipantServiceImplement implements ParticipantService {
     }
 
     @Override
-    public void deleteParticipant(Long id, Participant participant) {
+    public void deleteParticipant(Long id) {
         participantRepository.deleteById(id);
     }
 
