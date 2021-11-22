@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.example.backend.enumeration.Etat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

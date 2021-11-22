@@ -1,9 +1,7 @@
 package com.example.backend.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +23,8 @@ public class Responsable {
     private String domaine;
     private String type;
     private String etat;
+    @ManyToOne
+	private Administrateur administrateurs;
     
 	public Long getId_responsable() {
 		return id_responsable;
