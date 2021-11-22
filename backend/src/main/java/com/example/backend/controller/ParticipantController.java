@@ -16,8 +16,8 @@ public class ParticipantController {
         return participantService.addParticipant(participant);
     }
     @DeleteMapping(value = "/deleteParticipant/{id}")
-    public void delete (@PathVariable("id") Long id){
-       participantService.deleteParticipant(id);
+    public void delete (@PathVariable("id") Long id,Participant participant){
+       participantService.deleteParticipant(id,participant);
     }
     @PutMapping(path = "/participant/{id}")
     public Participant update(@RequestBody Participant participant, @PathVariable Long id){
