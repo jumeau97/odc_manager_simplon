@@ -2,6 +2,7 @@ package com.example.backend.model;
 
 import com.example.backend.enumeration.Etat;
 import com.example.backend.enumeration.Statut;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
 
 @Data
 //@AllArgsConstructor
@@ -27,6 +29,9 @@ public class Exercice {
     private Etat etat;
     @ManyToOne
     private Administrateur admin;
+    @OneToMany(mappedBy ="exercice")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Collection<Activite> activites;
 
     public Exercice() {
     }
