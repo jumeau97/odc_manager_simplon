@@ -19,8 +19,8 @@ public class ParticipantController {
     public void delete (@PathVariable("id") Long id,Participant participant){
        participantService.deleteParticipant(id,participant);
     }
-    @PutMapping(path = "/participant/{id}")
-    public Participant update(@RequestBody Participant participant, @PathVariable Long id){
+    @PutMapping(path = "/update/{id}")
+    public Participant update(@RequestBody Participant participant, @PathVariable(name = "id") Long id){
        return participantService.updateParticipant(id,participant);
     }
     //pour afficher la liste
