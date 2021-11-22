@@ -2,7 +2,6 @@ package com.example.backend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
