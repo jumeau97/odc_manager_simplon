@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -20,6 +21,7 @@ public class Activite {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long Id_activite;
+    @NotBlank
     private  String libelle;
     private  String type;
     private Date date_debut;
