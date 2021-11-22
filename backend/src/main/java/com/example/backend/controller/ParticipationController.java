@@ -16,17 +16,17 @@ public class ParticipationController {
     @Autowired
     ParticipationService participationService;
 
-    @PostMapping("/ajout")
-    public Participation ajouterParticipation(Participation p, Long id) {
-        return participationService.ajouterParticipation(p, id);
+    @PostMapping("/ajout_p")
+    public Participation ajouterParticipation(@RequestBody Participation p) {
+        return participationService.ajouterParticipation(p);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deletep/{id}")
     public void deleteParticipation(@PathVariable("id") Long id) {
         participationService.deleteParticipation(id);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/updatep/{id}")
     public Participation updateParticipation(@PathVariable("id") Long id ,@RequestBody Participation p) {
         return participationService.updateParticipation(id, p);
     }

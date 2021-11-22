@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface ParticipationService {
 
-    public Participation ajouterParticipation(Participation p, Long id);
+    public Participation ajouterParticipation(Participation p);
     void deleteParticipation(Long id);
     public Participation updateParticipation(Long id, Participation p);
     public List<Participation> getAllParticipation();
