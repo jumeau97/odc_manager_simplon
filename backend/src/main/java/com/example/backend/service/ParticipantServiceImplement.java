@@ -32,8 +32,4 @@ public class ParticipantServiceImplement implements ParticipantService {
 
     }
 
-    @Override
-    public void deleteParticipant(Long id) {
-
-    }
 }
