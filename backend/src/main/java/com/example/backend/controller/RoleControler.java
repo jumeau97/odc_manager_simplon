@@ -30,10 +30,5 @@ public class RoleControler {
     public Role save (@RequestBody Role role){
         return roleserviceimp.ajouter_role(role);
     }
-    
-//@DeleteMapping
-//public void supprimerRole(@PathVariable Long id){
-//    RoleService.deleteRoleBye(Id)
-//}
-    
+
 }

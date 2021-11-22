@@ -29,7 +29,6 @@ public class ParticipantServiceImplement implements ParticipantService {
     @Override
     public void deleteParticipant(Long id, Participant participant) {
         participantRepository.deleteById(id);
-
     }
 
     @Override
