@@ -16,7 +16,7 @@ public class ParticipationController {
     @Autowired
     ParticipationService participationService;
 
-    @PostMapping("/ajout_p")
+    @PostMapping("/ajoutp")
     public Participation ajouterParticipation(@RequestBody Participation p) {
         return participationService.ajouterParticipation(p);
     }
