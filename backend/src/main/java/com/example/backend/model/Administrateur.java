@@ -1,7 +1,10 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 public class Administrateur implements Serializable {
@@ -18,6 +21,11 @@ public class Administrateur implements Serializable {
     private Etat etat;
     @ManyToOne
     private Role role;
+    @OneToMany(mappedBy ="admin")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Collection<Exercice> exercices;
+
+
     public Administrateur() {
     }
 

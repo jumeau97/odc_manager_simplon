@@ -16,17 +16,17 @@ public class AdminService {
     AdminRepository adminRepository;
 
     //La liste
-    public List<Administrateur> list(){
+    public List<Administrateur> list() {
         return adminRepository.findAll();
     }
 
     //Inserer un admin
-    public Administrateur saveAdmin(Administrateur admin){
+    public Administrateur saveAdmin(Administrateur admin) {
         Administrateur a;
 
-        try{
-            a=adminRepository.save(admin);
-        }catch (Exception e){
+        try {
+            a = adminRepository.save(admin);
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             System.out.println("Une erreur est survenue");
         }
@@ -37,12 +37,12 @@ public class AdminService {
     }
 
     //Mettre à jour l'infos d'un administrateur
-    public Administrateur updateAdmin(Long id, Administrateur admin){
+    public Administrateur updateAdmin(Long id, Administrateur admin) {
         Administrateur ad;
-         ad= adminRepository.getById(id);
-       // System.out.println("l'id recuperer"+a);
-        try{
-            if(ad!=null){
+        ad = adminRepository.getById(id);
+        // System.out.println("l'id recuperer"+a);
+        try {
+            if (ad != null) {
                 ad.setNom(admin.getNom());
                 ad.setPrenom(admin.getPrenom());
                 ad.setLogin(admin.getLogin());
@@ -53,7 +53,7 @@ public class AdminService {
 
                 System.out.println("insertion reussie");
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             System.out.println("une erreur s'est produite");
 
@@ -65,12 +65,12 @@ public class AdminService {
 
     //supprimer l'info d'un administrateur
 
-    public void deleteAdmin(Long id){
+    public void deleteAdmin(Long id) {
 
-        try{
+        try {
             adminRepository.deleteById(id);
             System.out.println("suppresion reussie");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             System.out.println("une erreur est survenu");
         }
@@ -78,3 +78,4 @@ public class AdminService {
 
     }
 }
+

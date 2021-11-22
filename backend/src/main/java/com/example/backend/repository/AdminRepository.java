@@ -10,6 +10,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface AdminRepository extends JpaRepository<Administrateur, Long> {
 
 
-
-
 }
