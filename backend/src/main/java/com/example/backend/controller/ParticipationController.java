@@ -31,7 +31,7 @@ public class ParticipationController {
         return participationService.updateParticipation(id, p);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/getp")
     public List<Participation> getAllParticipation() {
         return participationService.getAllParticipation();
     }

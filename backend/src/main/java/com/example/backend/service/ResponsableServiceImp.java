@@ -15,13 +15,13 @@ public class ResponsableServiceImp implements ResponsableService {
 	ResponsableRepository responsableRepository;
 	
 	@Override
-	public Responsable Ajouter_Responsable(Responsable responsable) {
+	public Responsable ajouter_responsable(Responsable responsable) {
 		return responsableRepository.save(responsable);
 	}
 
 	@Override
-	public Responsable Modifier_Responsable(Long id, Responsable responsable) {
-		Responsable responsables = responsableRepository.findById(id).orElseThrow();
+	public Responsable modifier_responsable(Long id, Responsable responsable) {
+		Responsable responsables = responsableRepository.findById(id).get();
 		responsables.setNom(responsable.getNom());
 		responsables.setPrenom(responsable.getPrenom());
 		responsables.setTelephone(responsable.getTelephone());
@@ -32,17 +32,17 @@ public class ResponsableServiceImp implements ResponsableService {
 	}
 
 	@Override 
-	public List<Responsable> list_Responsable() {
+	public List<Responsable> list_responsable() {
 		return responsableRepository.findAll();
 	}
 
 	@Override
-	public Responsable Afficher_Responsable_by_id(Long id) {
+	public Responsable afficher_responsable_by_id(Long id) {
 		return responsableRepository.findById(id).get();
 	}
 
 	@Override
-	public void Supprimer_Responsable(Long id) {
+	public void supprimer_responsable(Long id) {
 		responsableRepository.deleteById(id);
 		
 	}
