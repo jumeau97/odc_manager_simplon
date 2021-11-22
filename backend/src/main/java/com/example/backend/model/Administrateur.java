@@ -36,7 +36,7 @@ public class Administrateur implements Serializable {
     @NotBlank(message = "Veuillez renseigner l'email...")
     @Email
     String email;
-
+    @Enumerated(EnumType.STRING)
     private Etat etat;
 
     //@NotNull(message = "Veuillez renseigner le rôle...")
