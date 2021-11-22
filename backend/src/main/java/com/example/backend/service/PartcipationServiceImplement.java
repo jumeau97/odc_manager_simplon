@@ -24,7 +24,13 @@ public class PartcipationServiceImplement implements ParticipationService{
 
     @Override
     public Participation updateParticipation(Long id, Participation p) {
-        return participationRepo.save(p);
+        Participation APP = participationRepo.findById(id).get();
+        APP.setHeure_arriver(p.getHeure_arriver());
+        APP.setId_activite(p.getId_activite());
+        APP.setId_participant(p.getId_participant());
+        APP.setId_p(p.getId_p());
+        APP.setPresence(p.isPresence());
+        return participationRepo.save(APP);
     }
 
     @Override
