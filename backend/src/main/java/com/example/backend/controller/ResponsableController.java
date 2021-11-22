@@ -21,34 +21,33 @@ import com.example.backend.service.ResponsableService;
 @RequestMapping("/api")
 public class ResponsableController {
 	@Autowired
-	ResponsableService ResponsableServiceImp;
-	
-//API pour Responsable
+	ResponsableService responsableService;
 	
 	//Affichage de la liste
     @GetMapping("/responsables")
     public List<Responsable> getResponsableList(){
-    return  ResponsableServiceImp.list_Responsable();
+    return  responsableService.list_responsable();
     }
     
     //Affichage par id
     @GetMapping(path = "/responsable/{id}")
     public Responsable getOneresponsable(@PathVariable(value= "id") Long id){
-        return ResponsableServiceImp.Afficher_Responsable_by_id(id);
+        return responsableService.afficher_responsable_by_id(id);
     }
     
     //Ajout d'un responsable
-    @PostMapping(value="/ajout")
+    @PostMapping(path="/ajout")
     public Responsable save(@RequestBody Responsable responsable) {
-        return ResponsableServiceImp.Ajouter_Responsable(responsable);
+        return responsableService.ajouter_responsable(responsable);
     }
+
     //Modification d'un responsable par son id
     @PutMapping("/update/{id}")
-    public Responsable update(@RequestBody Responsable responsable, @PathVariable Long id){
-        return ResponsableServiceImp.Modifier_Responsable(id, responsable);
+    public Responsable updateResponsable(@PathVariable Long id, @RequestBody Responsable responsable){
+        return responsableService.modifier_responsable(id, responsable);
     }
     @DeleteMapping("/delete/{id}")
     public void deleteresponsable(@PathVariable Long id) {
-    	ResponsableServiceImp.Supprimer_Responsable(id);
+        responsableService.supprimer_responsable(id);
     }
 }

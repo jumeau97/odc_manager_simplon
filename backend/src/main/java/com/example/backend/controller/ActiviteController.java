@@ -11,32 +11,31 @@ import java.util.List;
 
 @RestController
 //@CrossOrigin("*")
-@RequestMapping("/activite")
+@RequestMapping("/api/activite")
 public class ActiviteController {
    @Autowired
    ActiviteService activiteService;
 
     //lister toutes les activités
-    @GetMapping("/Activites")
+    @GetMapping("/activites")
     public List<Activite> getAllActivite(){
     return activiteService.getAllActivite();
     }
 
-
     //AJOUTER UNE ACTIVITE
-    @PostMapping("/AjouActivite")
+    @PostMapping("/ajouActivite")
     public String ajouterActivite(@RequestBody Activite activite){
         this.activiteService.ajouterActivite(activite);
         return "ok";
-        }
-        //MODIFIER UNE ACTIVITE
-     @PutMapping ("ModifietActivite/{Id_activite}")
+    }
+
+    //MODIFIER UNE ACTIVITE
+    // @PutMapping ("modifietActivite/{Id_activite}")
     public void Modifier_activite(@RequestBody Activite activite, @PathVariable Long Id_activite) {
     this.activiteService.modifierActivite(Id_activite, activite);
      }
 
-
-//AVOIR UNE ACTIVITE PAR ID
+    //AVOIR UNE ACTIVITE PAR ID
     @GetMapping("/uneActivite/{Id_activite}")
     public Activite AvoirUneActivite(@PathVariable("Id_activite") Long Id_activite){
         return activiteService.listeById(Id_activite);

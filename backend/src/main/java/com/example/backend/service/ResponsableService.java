@@ -5,10 +5,9 @@ import java.util.List;
 import com.example.backend.model.Responsable;
 
 public interface ResponsableService {
-	public abstract Responsable Ajouter_Responsable(Responsable responsable);
-	public abstract Responsable Modifier_Responsable(Long id, Responsable responsable);
-	public abstract List<Responsable> list_Responsable();
-	public abstract Responsable Afficher_Responsable_by_id(Long id);
-	void Supprimer_Responsable(Long id);
-
+	public Responsable ajouter_responsable(Responsable responsable);
+	public Responsable modifier_responsable(Long id, Responsable responsable);
+	public List<Responsable> list_responsable();
+	public Responsable afficher_responsable_by_id(Long id);
+	public void supprimer_responsable(Long id);
 }

@@ -10,28 +10,28 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api")
+@RequestMapping("/api/participation")
 public class ParticipationController {
 
     @Autowired
     ParticipationService participationService;
 
-    @PostMapping("/ajout")
-    public Participation ajouterParticipation(Participation p, Long id) {
-        return participationService.ajouterParticipation(p, id);
+    @PostMapping("/ajoutp")
+    public Participation ajouterParticipation(@RequestBody Participation p) {
+        return participationService.ajouterParticipation(p);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deletep/{id}")
     public void deleteParticipation(@PathVariable("id") Long id) {
         participationService.deleteParticipation(id);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/updatep/{id}")
     public Participation updateParticipation(@PathVariable("id") Long id ,@RequestBody Participation p) {
         return participationService.updateParticipation(id, p);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/getp")
     public List<Participation> getAllParticipation() {
         return participationService.getAllParticipation();
     }

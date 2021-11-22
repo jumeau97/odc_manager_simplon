@@ -21,8 +21,5 @@ public interface RoleService {
    public Role modifier_role (Long Id, Role role);
    void suprimer_role (Long Id);
    public List <Role> listeRole();
-    
-   
-    
-    
+
 }

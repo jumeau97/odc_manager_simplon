@@ -31,10 +31,6 @@ public class ActiviteImp implements ActiviteService{
         activiteAncien.setEtat(activite.getEtat());
     }
 
-
-
-
-
     @Override
     public String supprimerActiviteById(Long Id_activite) {
         this.activiteRepository.deleteById(Id_activite);
