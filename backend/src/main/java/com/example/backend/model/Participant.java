@@ -21,8 +21,8 @@ public class Participant implements Serializable {
     private String domaine;
     private String structure;
     private String email;
-    @OneToMany(mappedBy = "particpant")
-    private Collection<Participation>participations;
+//    @OneToMany(mappedBy = "particpant")
+//    private Collection<Participation>participations;
 
 
 }

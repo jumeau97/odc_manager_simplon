@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 
 @Data
@@ -20,5 +21,7 @@ public class Activite {
     private Date date_debut;
     private Date date_fin;
     private String etat;
+    @OneToMany(mappedBy = "activite")
+    private Collection<Participation> participations;
 
 }

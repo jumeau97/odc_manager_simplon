@@ -2,26 +2,30 @@ package com.example.backend.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 public class Administrateur implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String nom;
-    String prenom;
-    String login;
-    String password;
-    String email;
+    private Long id;
+    private String nom;
+    private String prenom;
+    private String login;
+    private String password;
+    private String email;
     //boolean etat;
     private Etat etat;
     @ManyToOne
     private Role role;
+    @OneToMany(mappedBy = "administrateur")
+    Collection<Participation> participations;
     public Administrateur() {
     }
 
-    public Administrateur(String nom, String prenom, String login, String password, String email, Etat etat, Role role) {
+    public Administrateur(Long id, String nom, String prenom, String login, String password, String email, Etat etat, Role role, Collection<Participation> participations) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.login = login;
@@ -29,6 +33,7 @@ public class Administrateur implements Serializable {
         this.email = email;
         this.etat = etat;
         this.role = role;
+        this.participations = participations;
     }
 
     public Long getId() {
@@ -93,5 +98,13 @@ public class Administrateur implements Serializable {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Collection<Participation> getParticipations() {
+        return participations;
+    }
+
+    public void setParticipations(Collection<Participation> participations) {
+        this.participations = participations;
     }
 }
