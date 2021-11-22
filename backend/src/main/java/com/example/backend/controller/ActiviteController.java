@@ -30,7 +30,7 @@ public class ActiviteController {
     }
 
     //MODIFIER UNE ACTIVITE
-    // @PutMapping ("modifietActivite/{Id_activite}")
+    @PutMapping ("modifietActivite/{Id_activite}")
     public void Modifier_activite(@RequestBody Activite activite, @PathVariable Long Id_activite) {
     this.activiteService.modifierActivite(Id_activite, activite);
      }
