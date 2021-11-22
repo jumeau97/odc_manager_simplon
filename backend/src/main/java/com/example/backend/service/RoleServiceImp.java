@@ -8,6 +8,7 @@ package com.example.backend.service;
 import com.example.backend.model.Role;
 import com.example.backend.repository.RoleRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +42,11 @@ public class RoleServiceImp implements RoleService{
     public List<Role> listeRole() {
         return rolerepository.findAll();
     }
+
+    @Override
+    public Optional<Role> getRoleById(Long id) {
+        return rolerepository.findById(id);
+    }
+    
     
 }
