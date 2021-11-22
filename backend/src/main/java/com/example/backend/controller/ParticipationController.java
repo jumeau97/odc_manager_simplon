@@ -17,8 +17,9 @@ public class ParticipationController {
     ParticipationService participationService;
 
     @PostMapping("/ajoutp")
-    public Participation ajouterParticipation(@RequestBody Participation p) {
-        return participationService.ajouterParticipation(p);
+    public String ajouterParticipation(@RequestBody Participation p) {
+        participationService.ajouterParticipation(p);
+        return "Ajout effectué avec succès";
     }
 
     @DeleteMapping("/deletep/{id}")

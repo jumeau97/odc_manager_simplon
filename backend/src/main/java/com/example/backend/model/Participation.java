@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Time;
+import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
@@ -20,7 +20,7 @@ public class Participation {
     private Activite id_activite;
     @ManyToOne
     private Participant id_participant;
-    private Time heure_arriver;
+    private String heure_arriver;
     private boolean presence;
     @ManyToOne
     private Administrateur id_p;
