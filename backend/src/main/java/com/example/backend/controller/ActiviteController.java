@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/activite")
-public class ActiviteControleur {
+public class ActiviteController {
     @Autowired
     ActiviteService activiteService;
     //Enregistrer un nouveau activite
