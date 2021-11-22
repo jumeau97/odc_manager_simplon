@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="55560174-7325-42d6-9d98-6ba1618b126e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maquette/Maquette ODC MANAGER.xd" beforeDir="false" afterPath="$PROJECT_DIR$/Maquette/Maquette ODC MANAGER.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/controller/RoleControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/controller/RoleControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/service/ParticipantServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/service/ParticipantServiceImplement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/service/RoleService.java" afterDir="false" />
