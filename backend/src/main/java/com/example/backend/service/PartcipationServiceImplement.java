@@ -13,7 +13,7 @@ public class PartcipationServiceImplement implements ParticipationService{
     @Autowired
     ParticipationRepo participationRepo;
     @Override
-    public Participation ajouterParticipation(Participation p, Long id) {
+    public Participation ajouterParticipation(Participation p) {
         return participationRepo.save(p);
     }
 
