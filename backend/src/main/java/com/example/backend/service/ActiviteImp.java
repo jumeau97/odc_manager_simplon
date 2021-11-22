@@ -5,6 +5,7 @@ import com.example.backend.repository.ActiviteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -20,24 +21,28 @@ public class ActiviteImp implements ActiviteService{
     }
 
     @Override
-    public Activite modifierActivite(Activite activite) {
-        return activiteRepository.save(activite);
+    @Transactional
+    public void modifierActivite(Long Id_activite, Activite activite) {
+        Activite activiteAncien = activiteRepository.findById(Id_activite).get();
+        activiteAncien.setLibelle(activite.getLibelle());
+        activiteAncien.setType(activite.getType());
+        activiteAncien.setDate_debut(activite.getDate_debut());
+        activiteAncien.setDate_fin(activite.getDate_fin());
+        activiteAncien.setEtat(activite.getEtat());
+    }
+
+
+
+
+
+    @Override
+    public String supprimerActiviteById(Long Id_activite) {
+        this.activiteRepository.deleteById(Id_activite);
+        return "Suppression de l'activité" ;
     }
 
     @Override
-    public void supprimerActivite(Activite activite) {
-        activiteRepository.deleteAll();
-
-    }
-
-    @Override
-    public void supprimerActiviteById(Long Id_activite) {
-        activiteRepository.deleteById( Id_activite);
-
-    }
-
-    @Override
-    public Activite getActivite(Long Id_activite) {
+    public Activite listeById(Long Id_activite) {
         return activiteRepository.findById(Id_activite).get();
     }
 
@@ -45,4 +50,6 @@ public class ActiviteImp implements ActiviteService{
     public List<Activite> getAllActivite() {
         return activiteRepository.findAll();
     }
+
+
 }
