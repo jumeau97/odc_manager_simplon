@@ -26,7 +26,7 @@ public class ActiviteController {
     @PostMapping("/ajouActivite")
     public String ajouterActivite(@RequestBody Activite activite){
         this.activiteService.ajouterActivite(activite);
-        return "ok";
+        return "Activité ajoutée avec succèss...";
     }
 
     //MODIFIER UNE ACTIVITE
