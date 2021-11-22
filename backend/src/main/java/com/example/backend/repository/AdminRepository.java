@@ -12,13 +12,13 @@ import javax.transaction.Transactional;
 @RepositoryRestResource
 public interface AdminRepository extends JpaRepository<Administrateur, Long> {
 
-    @Transactional
-    @Modifying
-    @Query("update Administrateur admin set admin.nom = :nom, admin.prenom = :prenom, admin.login = :login," +
-            "admin.password = :password, admin.email = :email, admin.etat = :etat where admin.id = :id")
-    void updateAdmin(@Param(value = "nom") String nom, @Param(value = "prenom") String prenom, @Param(value = "login") String login,
-                     @Param(value = "password") String password, @Param(value = "email") String email, @Param(value = "etat") Etat etat,
-                     @Param(value = "id") Long id);
+//    @Transactional
+//    @Modifying
+//    @Query("update Administrateur admin set admin.nom = :nom, admin.prenom = :prenom, admin.login = :login," +
+//            "admin.password = :password, admin.email = :email, admin.etat = :etat where admin.id = :id")
+//    void updateAdmin(@Param(value = "nom") String nom, @Param(value = "prenom") String prenom, @Param(value = "login") String login,
+//                     @Param(value = "password") String password, @Param(value = "email") String email, @Param(value = "etat") Etat etat,
+//                     @Param(value = "id") Long id);
 
 
 }
