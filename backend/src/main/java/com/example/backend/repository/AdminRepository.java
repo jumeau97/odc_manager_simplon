@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface AdminRepository extends JpaRepository<Administrateur, Long> {
 
-
+    Administrateur findByLoginAndPassword(String login, String password);
 
 
 }

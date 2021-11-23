@@ -1,6 +1,7 @@
 package com.example.backend.service;
 
 import com.example.backend.model.Administrateur;
+import com.example.backend.model.payload.AuthResponse;
 import com.example.backend.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -76,5 +77,39 @@ public class AdminService {
         }
 
 
+    }
+
+    public Optional<Administrateur>  adminById(Long id){
+       Optional<Administrateur> a;
+        a=adminRepository.findById(id);
+
+
+        try{
+            if (a==null){
+                System.out.println("vide");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+
+        }
+        return a;
+    }
+
+    //Authentification
+
+    public AuthResponse Auth(String login, String password){
+        Administrateur a;
+
+
+        try{
+            a=adminRepository.findByLoginAndPassword(login,password);
+            if(a==null){
+            return AuthResponse.error();
+            }
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+        }
+        return AuthResponse.success();
     }
 }

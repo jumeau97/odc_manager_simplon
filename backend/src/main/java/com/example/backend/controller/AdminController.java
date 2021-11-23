@@ -39,7 +39,18 @@ public class AdminController {
         adminService.deleteAdmin(id);
     }
 
-    //public @ResponseBody ResponseEntity<?> deleteAdmin(@PathVariable(value = "id") Long id){
-        //return new ResponseEntity<>(adminService.deleteAdmin(id), HttpStatus.OK);
+    //recuperer un administrateur à travers son id
+    
+    @GetMapping(value="/admin/{id}")
+    public @ResponseBody ResponseEntity<?> OneAdmin(@RequestBody @PathVariable(value = "id") Long id ){
+        return new ResponseEntity<>(adminService.adminById(id), HttpStatus.OK);
+    }
+
+//    //Authentification
+    @PostMapping("/auth")
+    public @ResponseBody ResponseEntity<?> auth(@RequestBody Administrateur admin){
+        return new ResponseEntity<>(adminService.Auth(admin.getLogin(),admin.getPassword()), HttpStatus.OK);
+    }
+    
 
 }
