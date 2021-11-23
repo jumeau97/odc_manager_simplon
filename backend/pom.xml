@@ -17,10 +17,6 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-<<<<<<< HEAD
-
-=======
->>>>>>> e4b36d17c544f985231bd84efeb3cddd9ba2d44f
 	</properties>
 	<dependencies>
 		<dependency>

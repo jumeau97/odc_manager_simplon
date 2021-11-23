@@ -5,6 +5,9 @@ import com.example.backend.repository.ParticipationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ParticipationService {
     @Autowired
@@ -20,5 +23,40 @@ public class ParticipationService {
         }
 
         return "ajouté avec succès";
+    }
+
+
+    //La liste de presence
+    public List<Participation> list(){
+        List<Participation> listP= new ArrayList<>();
+
+
+        try{
+            listP=participationRepository.findAll();
+            if (listP==null){
+
+            }
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            System.out.println("une erreur est survenue");
+        }
+        return listP;
+    }
+
+    //Liste de presence par activité
+    public List<Participation> listByActivite(Long id){
+        List<Participation> listPByA= new ArrayList<>();
+
+
+        try{
+            listPByA=participationRepository.findPresenceByActivite(id);
+            if(listPByA==null){
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("une erreur est survenue");
+        }
+        return listPByA;
     }
 }

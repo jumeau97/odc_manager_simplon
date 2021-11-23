@@ -1,5 +1,7 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -20,7 +22,8 @@ public class Administrateur implements Serializable {
     @ManyToOne
     private Role role;
     @OneToMany(mappedBy = "administrateur")
-    Collection<Participation> participations;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Collection<Participation> participations;
     public Administrateur() {
     }
 

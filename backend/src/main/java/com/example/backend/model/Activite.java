@@ -1,4 +1,5 @@
 package com.example.backend.model;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,7 @@ public class Activite {
     private Date date_fin;
     private String etat;
     @OneToMany(mappedBy = "activite")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Participation> participations;
 
 }
