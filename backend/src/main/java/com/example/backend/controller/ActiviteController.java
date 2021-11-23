@@ -43,4 +43,9 @@ public class ActiviteController {
     public Activite activite(@PathVariable("id_activite") Long id_activite){
         return activiteService.liste_Activite_By_Id (id_activite);
     }
+
+    public enum Etat {
+        active,
+        desactive
+    }
 }
