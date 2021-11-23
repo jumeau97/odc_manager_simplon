@@ -24,7 +24,7 @@ public class ActiviteController {
         this.activiteService.modifier_Activite(id_activite, activite);
     };
     //Suprimer une activite
-    @DeleteMapping("/suprimerActivite/{id_activite}")
+    @DeleteMapping("/supprimerActivite/{id_activite}")
     public String suprimer_activite(@PathVariable("id_activite") long id_activite){
         return this.activiteService.suprimer_Activite(id_activite);
     };

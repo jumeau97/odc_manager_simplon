@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.example.backend.enumeration.Etat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
@@ -11,13 +12,12 @@ public class Administrateur implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String nom;
-    String prenom;
-    String login;
-    String password;
-    String email;
-    //boolean etat;
+    private Long id;
+    private String nom;
+    private String prenom;
+    private String login;
+    private String password;
+    private String email;
     private Etat etat;
     @ManyToOne
     private Role role;
