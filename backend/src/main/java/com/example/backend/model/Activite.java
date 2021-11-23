@@ -15,9 +15,9 @@ public class Activite {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_activite;
     private String libelle;
-    private String type;
+    private TypeActivite type;
     private Date date_debut;
     private Date date_fin;
-    private String etat;
+    private Etat etat;
 
 }
