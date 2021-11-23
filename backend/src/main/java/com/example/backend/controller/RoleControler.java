@@ -19,7 +19,7 @@ import java.util.Optional;
  */
 
 @RestController
-@RequestMapping("/api/role")
+@RequestMapping("/odcmanager/api/role")
 public class RoleControler {
 
     @Autowired

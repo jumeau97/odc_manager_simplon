@@ -7,30 +7,41 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/odcmanager/api")
+@RequestMapping("/odcmanager/api/admin")
 public class AdminController {
 
     @Autowired
     AdminService adminService;
 
-    //la liste globale
-    @GetMapping("/list")
-    public ResponseEntity<?> list(){
-    return new ResponseEntity<>(adminService.list(), HttpStatus.OK);
-}
-
     //l'insertion
-    @PostMapping("/save")
-    public @ResponseBody ResponseEntity<?> save(@RequestBody Administrateur admin){
-    return new ResponseEntity<>(adminService.saveAdmin(admin), HttpStatus.OK);
+    @PostMapping("/add")
+    public String saveAnAdmin(@RequestBody Administrateur admin){
+        adminService.saveAdmin(admin);
+        return "Administrateur ajouté avec succèss...";
+    }
+
+    //Recuperer un administrateur par son ID
+    @GetMapping("/{id}")
+    public Administrateur getAnAdmin(@PathVariable("id") Long id) {
+        return adminService.getAnAdmin(id);
+    }
+
+    //la liste globale
+    @GetMapping("/all")
+    public List<Administrateur> list(){
+        return adminService.list();
     }
 
     //la modification
     @PutMapping("/update/{id}")
-    public @ResponseBody ResponseEntity<?> update(@RequestBody Administrateur admin,@PathVariable(name = "id") Long id){
-        return new ResponseEntity<>(adminService.updateAdmin(id, admin), HttpStatus.OK);
+    public String update(@PathVariable(name = "id") Long id, @RequestBody Administrateur admin){
+        adminService.updateAdmin(id, admin);
+        return "Administrateur modifié avec succèss...";
     }
 
     //Suppression
@@ -38,8 +49,5 @@ public class AdminController {
     public void delete(@PathVariable(name = "id") Long id){
         adminService.deleteAdmin(id);
     }
-
-    //public @ResponseBody ResponseEntity<?> deleteAdmin(@PathVariable(value = "id") Long id){
-        //return new ResponseEntity<>(adminService.deleteAdmin(id), HttpStatus.OK);
 
 }
