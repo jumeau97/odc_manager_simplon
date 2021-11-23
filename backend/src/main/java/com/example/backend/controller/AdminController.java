@@ -24,9 +24,9 @@ public class AdminController {
     //l'insertion
     @PostMapping("/save")
     public @ResponseBody ResponseEntity<?> save(@RequestBody Administrateur admin){
-    return new ResponseEntity<>(adminService.saveAdmin(admin),HttpStatus.OK);
+    return new ResponseEntity<>(adminService.saveAdmin(admin), HttpStatus.OK);
+    }
 
-}
     //la modification
     @PutMapping("/update/{id}")
     public @ResponseBody ResponseEntity<?> update(@RequestBody Administrateur admin,@PathVariable(name = "id") Long id){

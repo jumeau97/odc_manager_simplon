@@ -11,31 +11,40 @@ import java.util.List;
 
 @RestController
 //@CrossOrigin("*")
-@RequestMapping("/activite")
+@RequestMapping("/api/activite")
 public class ActiviteController {
    @Autowired
    ActiviteService activiteService;
 
-
-@GetMapping("/Activites")
+    //lister toutes les activités
+    @GetMapping("/activites")
     public List<Activite> getAllActivite(){
     return activiteService.getAllActivite();
     }
-    @PostMapping("/AjouActivite")
+
+    //AJOUTER UNE ACTIVITE
+    @PostMapping("/ajouActivite")
     public String ajouterActivite(@RequestBody Activite activite){
         this.activiteService.ajouterActivite(activite);
-        return "ok";
-        }
-     @PostMapping("ModifietActivite")
-    public Activite modifier(Activite activite){
-    return activiteService.modifierActivite(activite);
+        return "Activité ajoutée avec succèss...";
+    }
+
+    //MODIFIER UNE ACTIVITE
+    @PutMapping ("modifietActivite/{Id_activite}")
+    public void Modifier_activite(@RequestBody Activite activite, @PathVariable Long Id_activite) {
+    this.activiteService.modifierActivite(Id_activite, activite);
      }
-     @GetMapping("/uneActivite")
-    public Activite AvoirUneActivite(Long Id_activite){
-    return activiteService.getActivite(Id_activite);
-     }
-     @DeleteMapping("/ToutSupprimerActivites")
-    public void deleteAll(){
+
+    //AVOIR UNE ACTIVITE PAR ID
+    @GetMapping("/uneActivite/{Id_activite}")
+    public Activite AvoirUneActivite(@PathVariable("Id_activite") Long Id_activite){
+        return activiteService.listeById(Id_activite);
+    }
+
+    //SUPPRIMER ACTIVITE
+     @DeleteMapping("/supprimerActivites/{Id_activite}")
+    public String supprimerActiviteById(@PathVariable ("Id_activite") long Id_activite){
+    return this.activiteService.supprimerActiviteById(Id_activite);
      }
 
 }

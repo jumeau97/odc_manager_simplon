@@ -11,6 +11,7 @@ import java.util.List;
 public class ParticipantServiceImplement implements ParticipantService {
     @Autowired
     ParticipantRepository participantRepository;
+
     @Override
     public Participant addParticipant(Participant participant) {
         return participantRepository.save(participant);
