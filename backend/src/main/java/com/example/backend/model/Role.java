@@ -29,8 +29,9 @@ public class Role implements Serializable {
     
     @Id 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+
     private Long Id;
-    private String libele;
+    private String libelle;
     private String description;
     @OneToMany(mappedBy ="role" )
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

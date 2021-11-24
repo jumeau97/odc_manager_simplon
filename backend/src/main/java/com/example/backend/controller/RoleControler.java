@@ -8,27 +8,47 @@ package com.example.backend.controller;
 import com.example.backend.model.Role;
 import com.example.backend.service.RoleServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  *
  * @author hady.fofana
  */
+
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/odcmanager/api/role")
 public class RoleControler {
 
-   @Autowired
-   RoleServiceImp roleserviceimp;
-   
-   @PostMapping("/role/add")
+    @Autowired
+    RoleServiceImp roleimp;
+
+    @PostMapping("/add")
     public Role save (@RequestBody Role role){
-        return roleserviceimp.ajouter_role(role);
+        return roleimp.ajouter_role(role);
     }
 
+    @GetMapping("/all")
+    public List<Role> listeRole(){
+        return roleimp.listeRole();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Role> getRoleById(@PathVariable Long id){
+        return roleimp.getRoleById(id);
+    }
+
+    @DeleteMapping ("/delete/{id}")
+    public String supprimer(@PathVariable Long id){
+        roleimp.suprimer_role(id);
+        return "Rôle supprimé avec succèss...";
+    }
+
+    @PutMapping ("/update/{id}")
+    public String update(@RequestBody Role role, @PathVariable Long id){
+        roleimp.modifier_role(id, role);
+        return "Rôle modifié avec succèss...";
+    }
 }

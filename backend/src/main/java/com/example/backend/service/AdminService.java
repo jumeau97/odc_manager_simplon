@@ -3,11 +3,10 @@ package com.example.backend.service;
 import com.example.backend.model.Administrateur;
 import com.example.backend.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -21,19 +20,8 @@ public class AdminService {
     }
 
     //Inserer un admin
-    public Administrateur saveAdmin(Administrateur admin){
-        Administrateur a;
-
-        try{
-            a=adminRepository.save(admin);
-        }catch (Exception e){
-            e.printStackTrace(System.out);
-            System.out.println("Une erreur est survenue");
-        }
-
-        System.out.println("Enregistrer avec succès");
-        return admin;
-
+    public void saveAdmin(Administrateur admin){
+        adminRepository.save(admin);
     }
 
     //Mettre à jour l'infos d'un administrateur
@@ -60,21 +48,14 @@ public class AdminService {
         }
         System.out.println("Modification reussie");
         return admin;
-
     }
 
     //supprimer l'info d'un administrateur
-
     public void deleteAdmin(Long id){
+        adminRepository.deleteById(id);
+    }
 
-        try{
-            adminRepository.deleteById(id);
-            System.out.println("suppresion reussie");
-        }catch (Exception e){
-            e.printStackTrace(System.out);
-            System.out.println("une erreur est survenu");
-        }
-
-
+    public Administrateur getAnAdmin(Long id) {
+        return adminRepository.findById(id).get();
     }
 }

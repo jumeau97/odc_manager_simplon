@@ -16,7 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Administrateur implements Serializable {
+public class Administrateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +40,6 @@ public class Administrateur implements Serializable {
 
     private Etat etat;
 
-    //@NotNull(message = "Veuillez renseigner le rôle...")
     @ManyToOne
     private Role role;
 }
