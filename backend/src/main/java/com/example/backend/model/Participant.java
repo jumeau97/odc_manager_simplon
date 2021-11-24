@@ -22,18 +22,18 @@ public class Participant implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_participant;
+    public long id_participant;
 
     @NotBlank(message = "Veuillez renseigner le nom du participant...")
-    private String nom_complet;
+    public String nom_complet;
 
     //@Length(min = 8, message = "Le numéro de téléphone doit comporter au minimum huit (08) caractères...")
     @NotNull(message = "Veuillez renseigner le numéro de téléphone...")
-    private Integer telephone;
+    public Integer telephone;
 
-    private String domaine;
-    private String structure;
+    public String domaine;
+    public String structure;
 
     @NotBlank(message = "Veuillez renseigner l'email du participant...")
-    private String email;
+    public String email;
 }
