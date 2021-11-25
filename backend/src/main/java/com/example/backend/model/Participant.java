@@ -1,14 +1,12 @@
 package com.example.backend.model;
 
+import com.example.backend.enumeration.ParticipantGenre;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -36,4 +34,7 @@ public class Participant implements Serializable {
 
     @NotBlank(message = "Veuillez renseigner l'email du participant...")
     private String email;
+    @Enumerated(EnumType.STRING)
+    private ParticipantGenre genre;
+
 }

@@ -1,4 +1,5 @@
 package com.example.backend.controller;
+import com.example.backend.enumeration.ParticipantGenre;
 import com.example.backend.model.Participant;
 import com.example.backend.service.ParticipantService;
 import org.apache.poi.ss.usermodel.Cell;
@@ -7,6 +8,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.hibernate.sql.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -65,6 +67,7 @@ public class ParticipantController {
                 p.setStructure(getCellValue(row, 2));
                 p.setDomaine(getCellValue(row, 3));
                 p.setEmail(getCellValue(row, 4));
+                p.setGenre(ParticipantGenre.valueOf(getCellValue(row, 5)));
 
                 participantService.addParticipant(p);
                 System.out.println(p);
