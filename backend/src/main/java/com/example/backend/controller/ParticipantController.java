@@ -1,9 +1,18 @@
 package com.example.backend.controller;
 import com.example.backend.model.Participant;
 import com.example.backend.service.ParticipantService;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -36,10 +45,11 @@ public class ParticipantController {
     }
 
 
-    /* @PostMapping("/uploadexcel")
-    public List<PartcipantModel> importExcelFile(@RequestParam("file") MultipartFile files)throws IOException {
+    @PostMapping("/uploadexcel")
+    public List<Participant> importExcelFile(@RequestParam("file") MultipartFile files) throws IOException, IOException {
 
-        List<PartcipantModel> participants = new ArrayList<>();
+        List<Participant> participants = new ArrayList<>();
+        System.out.println(files);
 
         XSSFWorkbook workbook = new XSSFWorkbook(files.getInputStream());
 
@@ -48,31 +58,17 @@ public class ParticipantController {
         for (int index = 0; index < worksheet.getPhysicalNumberOfRows(); index++) {
             if (index > 0) {
                 XSSFRow row = worksheet.getRow(index);
-                PartcipantModel pModel = new PartcipantModel();
+                Participant p = new Participant();
 
-                pModel.nomcomplet = getCellValue(row, 0);
-                pModel.telephonep = convertStringToInt(getCellValue(row, 1));
-                pModel.emailp = getCellValue(row, 2);
-                pModel.domainep = getCellValue(row, 3);
-                pModel.structurep = getCellValue(row, 4);
+                p.setNom_complet(getCellValue(row, 0));
+                p.setTelephone(convertStringToInt(getCellValue(row, 1)));  ;
+                p.setStructure(getCellValue(row, 2));
+                p.setDomaine(getCellValue(row, 3));
+                p.setEmail(getCellValue(row, 4));
 
-                participants.add(pModel);
+                participantService.addParticipant(p);
+                System.out.println(p);
             }
-        }
-
-        // enregistrement dans la base de donnée
-        List<Participant> parc = new ArrayList<>();
-        if (participants.size() > 0) {
-            participants.forEach(x->{
-                Participant pp = new Participant();
-                pp.nom_complet = x.nomcomplet;
-                pp.telephone = x.telephonep;
-                pp.email = x.emailp;
-                pp.structure = x.structurep;
-                pp.domaine = x.domainep;
-                parc.add(pp);
-            });
-            participantService.ajoutExcel();
         }
 
         return participants;
@@ -94,5 +90,5 @@ public class ParticipantController {
         }
         result = Integer.parseInt(str);
         return result;
-    }*/
+    }
 }

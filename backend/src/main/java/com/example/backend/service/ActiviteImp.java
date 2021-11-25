@@ -9,9 +9,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-
 public class ActiviteImp implements ActiviteService{
-    @Autowired
+    @Autowired(required = false)
     ActiviteRepository activiteRepository;
 
     @Override

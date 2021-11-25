@@ -49,11 +49,6 @@ public class ParticipantServiceImplement implements ParticipantService {
         return participantRepository.findAll();
     }
 
-    //@Override
-    //public List<Participant> ajoutExcel() {
-      //  return  participantRepository.findAll();
-    //}
-
     @Override
     public void deleteParticipant(Long id) {
         participantRepository.deleteById(id);
